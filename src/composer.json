@@ -1,0 +1,40 @@
+{
+    "name": "arilia/table",
+    "description": "CakePHP HTML Table helper",
+    "type": "cakephp-plugin",
+    "keywords": [
+        "cakephp",
+        "cakephp3",
+        "cake3",
+        "table"
+    ],
+    "homepage": "https://github.com/arilia/table",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arilia",
+            "role": "Author",
+            "homepage":"https://github.com/arilia"
+        }
+    ],
+    "require": {
+        "cakephp/cakephp": "^3.4"
+    },
+    "require-dev": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "Table\\": "src"
+        }
+    },
+    "autoload-dev": {
+        
+    },
+    "support": {
+        
+    },
+    "scripts": {
+        
+    }
+}
