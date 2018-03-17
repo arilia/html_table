@@ -16,7 +16,7 @@ class TableHelper extends Helper
     
     use StringTemplateTrait;
      
-    public $helpers = ['Html', 'Paginator', 'Session', 'Form', 'Cell' => ['className' => 'MyCell']];
+    public $helpers = ['Html', 'Paginator', 'Session', 'Form', 'Table.Cell'];
     
     protected $_id = '';
     
