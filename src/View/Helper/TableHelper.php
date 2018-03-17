@@ -567,9 +567,10 @@ class TableHelper extends Helper
             </button>';
         $st .= "<div class='dropdown-menu'>";
         $st .= '<h6 class="dropdown-header">Righe per pagina</h6>';
+        
         foreach([20, 50, 100, 1000] as $i)
         {
-            $url_per_page = $this->Paginator->generateUrl(['limit' => $i, 'page' => null], null, ['escape' => false]);
+            $url_per_page = $this->Paginator->generateUrl(['limit' => $i, 'page' => null], null, true);
             if(isset($params['perPage']) && $params['perPage'] == $i)
                 $st .= "<a class='dropdown-item active'>$i</a>";
             else
