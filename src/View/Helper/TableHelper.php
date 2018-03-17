@@ -148,7 +148,7 @@ class TableHelper extends Helper
 
         if($this->config('paginate'))
             $return .= $this->__pageNavigator($columns);
-        $return .= '<table class="table small table-striped table-hover table-sm" id="table_'.$this->_id.'">';
+        $return .= '<table class="table  table-striped table-hover " id="table_'.$this->_id.'">';
         $table_content = $this->config('prepend');
         
         $table_content  .= '<thead>';
@@ -468,12 +468,12 @@ class TableHelper extends Helper
             {
                 if($this->config('stackedActions')){
                     $return .= '<td class = "text-nowrap text-center">';
-                    $return .= '<div class="btn-group-vertical btn-group-sm">';
+                    $return .= '<div class="btn-group-vertical ">';
                 }
                 else
                 {
                     $return .= '<td class = "text-nowrap text-right">';
-                    $return .= '<div class="btn-group btn-group-sm">';
+                    $return .= '<div class="btn-group">';
                 }
                 foreach ($actions as $key => $col)
                 {
@@ -500,7 +500,7 @@ class TableHelper extends Helper
             
             $this->Paginator->config('options.url.table_layout', '');
             $st .= "<div class='text-center'>";
-            $st .= "<ul class = 'pagination pagination-sm justify-content-center' >";
+            $st .= "<ul class = 'pagination  justify-content-center' >";
             $st .= $this->Paginator->prev('&laquo;', ['escape' => false]);
             $st .= $this->Paginator->numbers(['separator' => '', 'tag' => 'li' , 'currentClass'=>'active', 'currentTag'=>'a', 'first' => 'Prima',  'last' => 'Ultima']);
             $st .= $this->Paginator->next('&raquo;', ['escape' => false]);
@@ -514,7 +514,7 @@ class TableHelper extends Helper
     {
         $st = '';
         $st .= '<div class="btn-group" role="group">';
-        $st .= '<a class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+        $st .= '<a class="btn btn-secondary  dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-table"></i>
             </a>';
         $st .= "<ul class='dropdown-menu' style='float: left'>";
@@ -560,8 +560,9 @@ class TableHelper extends Helper
         // NUMERO RECORD PER PAGINA
         
         $params = $this->Paginator->params();
+        $st .= '<div class="btn-toolbar justify-content-between">';
         $st .= '<div class="dropdown pull-left" >';
-        $st .= '<button id="btnGroupDrop1" type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown">
+        $st .= '<button id="btnGroupDrop1" type="button" class="btn btn-light  dropdown-toggle" data-toggle="dropdown">
             '.$params['perPage'].' 
             </button>';
         $st .= "<div class='dropdown-menu'>";
@@ -583,41 +584,40 @@ class TableHelper extends Helper
         $st .= "<div class='button-group pull-right' >";
         if($this->config('pdfButton'))
         {
-            $img_pdf = '<i class="fa fa-file-pdf-o" style="color:darkred"></i>';
+            $img_pdf = '<i class="far fa-file-pdf" style="color:darkred"> </i>';
             $url_pdf = $this->Paginator->generateUrl(['table_layout' => 'pdf'], null, ['escape' => false]);
-            $st .= $this->Html->link($img_pdf, $url_pdf, ['escape' => false, 'target' => 'alt', 'class'=>"btn btn-light btn-sm"]);
+            $st .= $this->Html->link($img_pdf, $url_pdf, ['escape' => false, 'target' => 'alt', 'class'=>"btn btn-light "]);
 
         }
         if($this->config('xlsButton'))
         {
-            $img_xls = '<i class="fa fa-file-excel-o" style="color:darkgreen"></i>';
+            $img_xls = '<i class="far fa-file-excel" style="color:darkgreen"> </i>';
             $url_xls = $this->Paginator->generateUrl(['table_layout' => 'xls'], null, ['escape' => false]);
-            $st .= $this->Html->link($img_xls, $url_xls, ['escape' => false, 'class'=>"btn btn-light btn-sm"]);
+            $st .= $this->Html->link($img_xls, $url_xls, ['escape' => false, 'class'=>"btn btn-light "]);
 
         }
         if($this->config('starsButton'))
         {
-            $img_star = '<i class="fa fa-star" style="color:darkgreen"></i>';
+            $img_star = '<i class="far fa-star" style="color:darkgreen"> </i>';
             debug(Router::url());
             debug($this->request);
             $url_star = ['controller' => 'Favorites', 'action' => 'add', 'address' => $this->request->here()];
-            $st .= $this->Html->link($img_star, $url_star, ['escape' => false, 'class'=>"btn btn-light btn-sm"]);
+            $st .= $this->Html->link($img_star, $url_star, ['escape' => false, 'class'=>"btn btn-light "]);
 
         }
         
 
         if(true)
         {
-            $img_reload = '<i class="fa fa-refresh" id="refresh_icon"></i>';
+            $img_reload = '<i class="fas fa-sync" id="refresh_icon"> </i>';
             $url_reload = $url;
-            $st .= $this->Html->link($img_reload, $url_reload, ['escape' => false, 'id' => 'table_helper_refresh', 'class'=>"btn btn-light btn-sm"]);
+            $st .= $this->Html->link($img_reload, $url_reload, ['escape' => false, 'id' => 'table_helper_refresh', 'class'=>"btn btn-light"]);
 
         }
-        
         $st .= "</div>";
-        
+        $st .= '</div>';
         // NAVIGAZIONE
-        $st .= "<ul class='pagination pagination-sm justify-content-center' >"; 
+        $st .= "<ul class='pagination  justify-content-center' >"; 
         $st .= $this->Paginator->prev('&laquo;', ['escape' => false]);
         $st .= '<li class="page-item"><a class="page-link">';
         $st .= $this->Paginator->counter('Record da {{start}} a {{end}} di {{count}}'); 
