@@ -46,7 +46,7 @@ class TableHelper extends Helper
         'edit' => [
             'title' => '',
             'field' => 'id',
-            'icon' => 'fa-pencil',
+            'icon' => 'fas fa-pencil-alt',
             'url' => [
                 'action' => 'edit',
                 'id',
@@ -57,7 +57,7 @@ class TableHelper extends Helper
             'postlink' => true,
             'title' => '',
             'field' => 'id',
-            'icon' => 'fa-trash-o',
+            'icon' => 'fas fa-trash',
             'url' => [
                 'action' => 'delete',
                 'id'
@@ -69,7 +69,7 @@ class TableHelper extends Helper
             'postlink' => true,
             'title' => '',
             'field' => 'id',
-            'icon' => 'fa-trash-o',
+            'icon' => 'fas fa-trash',
             'url' => [
                 'action' => 'delete',
                 'id',
@@ -81,7 +81,7 @@ class TableHelper extends Helper
         'view' => [
             'title' => '',
             'field' => 'id',
-            'icon' => 'fa-search',
+            'icon' => 'fas fa-search',
             'url' => [
                 'action' => 'view',
                 'id'
@@ -579,6 +579,14 @@ class TableHelper extends Helper
         $st .= "</div>";
         $st .= "</div>";
 
+        // NAVIGAZIONE
+        $st .= "<ul class='pagination  justify-content-center' >"; 
+        $st .= $this->Paginator->prev('&laquo;', ['escape' => false]);
+        $st .= '<li class="page-item"><a class="page-link">';
+        $st .= $this->Paginator->counter('Record da {{start}} a {{end}} di {{count}}'); 
+        $st .= "</a></li>";
+        $st .= $this->Paginator->next('&raquo;', ['escape' => false]);
+        $st .= "</ul>";
         
         
         // ICONCINE
@@ -617,14 +625,7 @@ class TableHelper extends Helper
         }
         $st .= "</div>";
         $st .= '</div>';
-        // NAVIGAZIONE
-        $st .= "<ul class='pagination  justify-content-center' >"; 
-        $st .= $this->Paginator->prev('&laquo;', ['escape' => false]);
-        $st .= '<li class="page-item"><a class="page-link">';
-        $st .= $this->Paginator->counter('Record da {{start}} a {{end}} di {{count}}'); 
-        $st .= "</a></li>";
-        $st .= $this->Paginator->next('&raquo;', ['escape' => false]);
-        $st .= "</ul>";
+        
         return $st;
     }
     

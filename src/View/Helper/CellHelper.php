@@ -28,7 +28,7 @@ class CellHelper extends Helper
     protected $_defaultConfig = [
         'templates' => [
             'default' => '{{value}}',
-            'icon' => '<i class="fa-fw fa {{value}}"></i>',
+            'icon' => '<i class="{{value}}"></i>',
         ],
     ];
     
