@@ -1,5 +1,5 @@
 <?php
-namespace Table\View\Helper;
+namespace HTMLTable\View\Helper;
 
 use Cake\View\Helper;
 use Cake\Collection\Collection;
