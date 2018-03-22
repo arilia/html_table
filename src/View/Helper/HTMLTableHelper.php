@@ -11,7 +11,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
 
-class TableHelper extends Helper
+class HTMLTableHelper extends Helper
 {
     
     use StringTemplateTrait;
