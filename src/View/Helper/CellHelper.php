@@ -27,7 +27,7 @@ class CellHelper extends Helper
     
     protected $_defaultConfig = [
         'templates' => [
-            'default' => '{{value}}',
+            'default' => 'fa-fw {{value}}',
             'icon' => '<i class="{{value}}"></i>',
         ],
     ];
@@ -291,7 +291,7 @@ class CellHelper extends Helper
             break;
             case 'icon':
 //                $template = 'icon';
-                $st = '<i class="fa-fw fa '.$value.'"></i>';
+                $st = '<i class="fa-fw '.$value.'"></i>';
             break;
             case 'lookup':
                 
@@ -309,7 +309,7 @@ class CellHelper extends Helper
         
         $value = $st;
         if(isset($column['icon']))
-            $value = '<i class="fa-fw fa '.$column['icon'].'"></i>';
+            $value = '<i class="fa-fw '.$column['icon'].'"></i>';
         if(isset($column['text']))
             $value = $column['text'];
         if(!$value && isset($column['empty_string']))

@@ -57,7 +57,7 @@ class TableHelper extends Helper
             'postlink' => true,
             'title' => '',
             'field' => 'id',
-            'icon' => 'fas fa-trash',
+            'icon' => 'far fa-trash-alt',
             'url' => [
                 'action' => 'delete',
                 'id'
@@ -148,7 +148,7 @@ class TableHelper extends Helper
 
         if($this->config('paginate'))
             $return .= $this->__pageNavigator($columns);
-        $return .= '<table class="table  table-striped table-hover " id="table_'.$this->_id.'">';
+        $return .= '<table class="small table  table-striped table-hover table-sm " id="table_'.$this->_id.'">';
         $table_content = $this->config('prepend');
         
         $table_content  .= '<thead>';
